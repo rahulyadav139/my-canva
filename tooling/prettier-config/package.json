@@ -1,0 +1,25 @@
+{
+  "name": "@repo/prettier-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "echo 'No linting needed for Prettier config package'",
+    "clean": "rimraf node_modules dist",
+    "format": "echo 'No formatting needed for Prettier config package'",
+    "format:check": "echo 'No formatting needed for Prettier config package'",
+    "type-check": "echo 'No types to check for Prettier config package'"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "prettier": "catalog:"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "@repo/typescript-config/react",
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "incremental": true,
+    "module": "ES2022",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
+    "paths": {
+      "@repo/ui/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

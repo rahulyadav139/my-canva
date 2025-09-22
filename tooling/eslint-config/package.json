@@ -1,0 +1,38 @@
+{
+  "name": "@repo/eslint-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'No linting needed for ESLint config package'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rimraf node_modules dist",
+    "type-check": "echo 'No types to check for ESLint config package'"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@next/eslint-plugin-next": "^15.5.0",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^16.3.0",
+    "prettier": "catalog:",
+    "rimraf": "^6.0.1",
+    "typescript": "catalog:",
+    "typescript-eslint": "^8.40.0"
+  },
+  "exports": {
+    "./base": "./src/base.js",
+    "./next": "./src/next.js",
+    "./react": "./src/react.js"
+  },
+  "prettier": "@repo/prettier-config"
+}

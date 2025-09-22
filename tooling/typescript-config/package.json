@@ -1,0 +1,24 @@
+{
+  "name": "@repo/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "echo 'No linting needed for TypeScript config package'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rimraf node_modules dist",
+    "type-check": "echo 'No types to check for TypeScript config package'"
+  },
+  "devDependencies": {
+    "@repo/prettier-config": "workspace:*",
+    "prettier": "catalog:",
+    "rimraf": "^6.0.1"
+  },
+  "exports": {
+    "./base": "./base.json",
+    "./next": "./next.json",
+    "./react": "./react.json",
+    "./node": "./node.json"
+  },
+  "prettier": "@repo/prettier-config"
+}

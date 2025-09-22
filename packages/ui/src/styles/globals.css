@@ -1,0 +1,286 @@
+@import 'tailwindcss';
+
+/* source files */
+@source "../../../apps/**/*.{ts,tsx}";
+@source "../../../components/**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Color Palette System
+ * 
+ * Light Theme (Default):
+ * Primary: #3D5AFE (Bright Indigo – strong base)
+ * Secondary: #00C9A7 (Aqua Teal – adds freshness)
+ * Background: #F5F7FA (Soft cool white – clean & light)
+ * Text: #1E1E2F (Dark navy-gray – contrast with indigo)
+ * Accent: #FFB400 (Amber – energetic pop against indigo)
+ * 
+ * Dark Theme:
+ * Primary: #5C6BC0 (Lighter Indigo for dark mode)
+ * Secondary: #00D4B1 (Brighter Teal for dark mode)
+ * Background: #0F1419 (Deep dark blue-gray)
+ * Text: #E8EAF6 (Light gray-blue for readability)
+ * Accent: #FFC107 (Brighter Amber for dark mode)
+ */
+
+:root {
+  /* Base Colors */
+  --background: #f5f7fa;
+  --foreground: #1e1e2f;
+  --card: #ffffff;
+  --card-foreground: #1e1e2f;
+  --popover: #ffffff;
+  --popover-foreground: #1e1e2f;
+
+  /* Primary Colors */
+  --primary: #3d5afe;
+  --primary-hover: #303f9f;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Colors */
+  --secondary: #00c9a7;
+  --secondary-hover: #00a085;
+  --secondary-foreground: #ffffff;
+
+  /* Accent Colors */
+  --accent: #ffb400;
+  --accent-hover: #e6a200;
+  --accent-foreground: #1e1e2f;
+
+  /* Support Colors */
+  --support: #e3f2fd;
+  --support-foreground: #0d47a1;
+
+  /* Muted Colors */
+  --muted: #f8f9fa;
+  --muted-foreground: #6c757d;
+
+  /* Destructive Colors */
+  --destructive: #dc3545;
+  --destructive-foreground: #ffffff;
+  --destructive-border: #dc3545;
+
+  /* Warning Colors */
+  --warning: #ffb400;
+  --warning-foreground: #1e1e2f;
+  --warning-border: #e6a200;
+
+  /* Success Colors */
+  --success: #00c9a7;
+  --success-foreground: #ffffff;
+  --success-border: #00a085;
+
+  /* Border & Input Colors */
+  --border: #e9ecef;
+  --input: #e9ecef;
+  --ring: #3d5afe;
+
+  /* Chart Colors */
+  --chart-1: #3d5afe;
+  --chart-2: #00c9a7;
+  --chart-3: #ffb400;
+  --chart-4: #9c27b0;
+  --chart-5: #ff5722;
+
+  /* Sidebar Colors */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1e1e2f;
+  --sidebar-primary: #3d5afe;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00c9a7;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e9ecef;
+  --sidebar-ring: #3d5afe;
+
+  /* Radius */
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Base Colors */
+  --background: #0f1419;
+  --foreground: #e8eaf6;
+  --card: #1a1f2e;
+  --card-foreground: #e8eaf6;
+  --popover: #1a1f2e;
+  --popover-foreground: #e8eaf6;
+
+  /* Primary Colors */
+  --primary: #5c6bc0;
+  --primary-hover: #7986cb;
+  --primary-foreground: #ffffff;
+
+  /* Secondary Colors */
+  --secondary: #00d4b1;
+  --secondary-hover: #00e5c4;
+  --secondary-foreground: #ffffff;
+
+  /* Accent Colors */
+  --accent: #ffc107;
+  --accent-hover: #ffd54f;
+  --accent-foreground: #0f1419;
+
+  /* Support Colors */
+  --support: #1a237e;
+  --support-foreground: #c5cae9;
+
+  /* Muted Colors */
+  --muted: #2a3441;
+  --muted-foreground: #9ca3af;
+
+  /* Destructive Colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --destructive-border: #ef4444;
+
+  /* Warning Colors */
+  --warning: #ffb400;
+  --warning-foreground: #0f1419;
+  --warning-border: #e6a200;
+
+  /* Success Colors */
+  --success: #00d4b1;
+  --success-foreground: #ffffff;
+  --success-border: #00e5c4;
+
+  /* Border & Input Colors */
+  --border: #374151;
+  --input: #1a1f2e;
+  --ring: #5c6bc0;
+
+  /* Chart Colors */
+  --chart-1: #5c6bc0;
+  --chart-2: #00d4b1;
+  --chart-3: #ffc107;
+  --chart-4: #ab47bc;
+  --chart-5: #ff7043;
+
+  /* Sidebar Colors */
+  --sidebar: #1a1f2e;
+  --sidebar-foreground: #e8eaf6;
+  --sidebar-primary: #5c6bc0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00d4b1;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #374151;
+  --sidebar-ring: #5c6bc0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-support: var(--support);
+  --color-support-foreground: var(--support-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-border: var(--destructive-border);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-border: var(--warning-border);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-border: var(--success-border);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Sonner Toast Integration with shadcn/ui */
+:root {
+  --normal-bg: var(--popover);
+  --normal-text: var(--popover-foreground);
+  --normal-border: var(--border);
+  --success-bg: var(--success);
+  --success-text: var(--success-foreground);
+  --success-border: var(--success-border);
+  --warning-bg: var(--warning);
+  --warning-text: var(--warning-foreground);
+  --warning-border: var(--warning-border);
+  --danger-bg: var(--destructive);
+  --danger-text: var(--destructive-foreground);
+  --danger-border: var(--destructive-border);
+}
+
+.dark {
+  --normal-bg: var(--popover);
+  --normal-text: var(--popover-foreground);
+  --normal-border: var(--border);
+  --success-bg: var(--success);
+  --success-text: var(--success-foreground);
+  --success-border: var(--success-border);
+  --warning-bg: var(--warning);
+  --warning-text: var(--warning-foreground);
+  --warning-border: var(--warning-border);
+  --danger-bg: var(--destructive);
+  --danger-text: var(--destructive-foreground);
+  --danger-border: var(--destructive-border);
+}
+
+/* Force Sonner toast styling with higher specificity */
+.toaster [data-sonner-toast][data-type='error'] {
+  background-color: var(--danger-bg) !important;
+  color: var(--danger-text) !important;
+  border-color: var(--danger-border) !important;
+}
+
+.toaster [data-sonner-toast][data-type='success'] {
+  background-color: var(--success-bg) !important;
+  color: var(--success-text) !important;
+  border-color: var(--success-border) !important;
+}
+
+.toaster [data-sonner-toast][data-type='warning'] {
+  background-color: var(--warning-bg) !important;
+  color: var(--warning-text) !important;
+  border-color: var(--warning-border) !important;
+}
+
+.toaster [data-sonner-toast]:not([data-type]) {
+  background-color: var(--normal-bg) !important;
+  color: var(--normal-text) !important;
+  border-color: var(--normal-border) !important;
+}
