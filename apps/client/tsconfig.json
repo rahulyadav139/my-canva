@@ -1,27 +1,28 @@
 {
+  "extends": "@repo/typescript-config/next",
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    "baseUrl": ".",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "resolveJsonModule": true,
+    "tsBuildInfoFile": "./.next/tsconfig.tsbuildinfo",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@repo/ui/components/*": ["../../packages/ui/src/components/*"],
+      "@repo/ui/base/*": ["../../packages/ui/src/components/base/*"],
+      "@repo/ui/hooks/*": ["../../packages/ui/src/hooks/*"],
+      "@repo/ui/lib/*": ["../../packages/ui/src/lib/*"],
+      "@repo/ui/styles.css": ["../../packages/ui/src/styles/globals.css"],
+      "@repo/ui/utils": ["../../packages/ui/src/lib/utils"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "next.config.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.json",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
 }
