@@ -2,40 +2,30 @@
   "name": "my-canva",
   "private": true,
   "scripts": {
-    "build": "bun --filter '*' build",
-    "build:client": "bun --filter client build",
-    "build:api": "bun --filter api build",
-    "dev": "bun --filter './apps/*' dev",
-    "dev:client": "bun --filter client dev",
-    "dev:api": "bun --filter api dev",
-    "start:api": "cd apps/api && bun run start",
-    "lint": "bun --filter '*' lint",
-    "format": "bun --filter '*' format",
-    "format:check": "bun --filter '*' format:check",
-    "type-check": "bun --filter '*' type-check",
-    "clean": "bun --filter '*' clean && rimraf node_modules",
-    "ui:add": "bun --filter @repo/ui bunx shadcn@latest add --"
+    "build": "turbo run build",
+    "build:client": "turbo run build --filter=client",
+    "build:api": "turbo run build --filter=api",
+    "dev": "turbo run dev --parallel --filter=./apps/*",
+    "dev:client": "turbo run dev --filter=client",
+    "dev:api": "turbo run dev --filter=api",
+    "start:api": "cd apps/api && turbo run start",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "format:check": "turbo run format:check",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rimraf node_modules",
+    "ui:add": "turbo run bunx --filter=@repo/ui -- shadcn@latest add --"
   },
   "devDependencies": {
     "@repo/prettier-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "prettier": "catalog:",
     "rimraf": "^6.0.1",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "turbo": "^2.5.6"
   },
-  "workspaces": {
-    "packages": [
-      "apps/*",
-      "packages/*",
-      "tooling/*"
-    ],
-    "catalog": {
-      "zod": "4.1.5",
-      "react": "19.1.1",
-      "react-dom": "19.1.1",
-      "prettier": "3.6.2",
-      "eslint": "9.0.0",
-      "typescript": "5.9.2"
-    }
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=20"
   }
 }
