@@ -1,0 +1,16 @@
+{
+  "extends": "@repo/typescript-config/node",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "incremental": true,
+    "baseUrl": ".",
+    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@repo/shared": ["../shared/src/index.ts"],
+      "@repo/shared/schema": ["../shared/src/schema/index.ts"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
+}
