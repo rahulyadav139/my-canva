@@ -1,12 +1,39 @@
 {
   "name": "api",
-  "module": "index.ts",
-  "type": "module",
+  "version": "1.0.0",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
+  "license": "ISC",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "dependencies": {
+    "@hocuspocus/extension-database": "^3.2.3",
+    "@hocuspocus/server": "^3.2.3",
+    "@repo/database": "workspace:*",
+    "@repo/shared": "workspace:*",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.2",
+    "y-protocols": "^1.0.6",
+    "yjs": "^13.6.27",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "nodemon": "^3.1.10",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.5"
   }
 }
