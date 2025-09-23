@@ -1,0 +1,48 @@
+{
+  "name": "@repo/shared",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --cache --cache-location .eslintcache",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rimraf node_modules dist",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "catalog:",
+    "rimraf": "^6.0.1",
+    "typescript": "catalog:"
+  },
+  "prettier": "@repo/prettier-config",
+  "dependencies": {
+    "mongoose": "^8.18.2",
+    "uuid": "^11.1.0",
+    "zod": "catalog:"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "development": "./src/index.ts"
+    },
+    "./schema": {
+      "types": "./dist/schema/index.d.ts",
+      "import": "./dist/schema/index.js",
+      "require": "./dist/schema/index.js",
+      "default": "./dist/schema/index.js"
+    },
+    "./*": {
+      "import": "./dist/*/index.js",
+      "types": "./dist/*/index.d.ts",
+      "development": "./src/*/index.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts"
+}
