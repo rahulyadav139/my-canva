@@ -6,6 +6,9 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "resolveJsonModule": true,
     "tsBuildInfoFile": "./.next/tsconfig.tsbuildinfo",
+    "skipLibCheck": true,
+    "declaration": false,
+    "declarationMap": false,
     "paths": {
       "@/*": ["./*"],
       "@repo/ui/components/*": ["../../packages/ui/src/components/*"],
@@ -13,7 +16,9 @@
       "@repo/ui/hooks/*": ["../../packages/ui/src/hooks/*"],
       "@repo/ui/lib/*": ["../../packages/ui/src/lib/*"],
       "@repo/ui/styles.css": ["../../packages/ui/src/styles/globals.css"],
-      "@repo/ui/utils": ["../../packages/ui/src/lib/utils"]
+      "@repo/ui/utils": ["../../packages/ui/src/lib/utils"],
+      "@repo/ui/postcss.config": ["../../packages/ui/postcss.config.mjs"],
+      "@repo/shared/*": ["../../packages/shared/*/index"]
     }
   },
   "include": [

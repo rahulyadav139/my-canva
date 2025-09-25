@@ -4,11 +4,13 @@ import { AppError, ErrorCode } from '@repo/shared/errors';
 
 import type { ErrorRequestHandler } from 'express';
 
-export const errorMiddleware: ErrorRequestHandler = (err, _, res) => {
+export const errorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
   let status = 500;
   let code: string = ErrorCode.INTERNAL_ERROR;
   let message = 'Internal Server Error';
   let details: unknown;
+
+  console.log('there is an error');
 
   if (err instanceof ZodError) {
     status = 422;
@@ -51,7 +53,7 @@ export const errorMiddleware: ErrorRequestHandler = (err, _, res) => {
     timestamp: new Date().toISOString(),
   };
 
-  return res.status(status).json(errorInfo);
+  return res.status(status).send(errorInfo);
 };
 
 export function formatZodError(err: ZodError) {

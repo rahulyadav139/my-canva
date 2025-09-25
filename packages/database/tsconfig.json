@@ -2,13 +2,17 @@
   "extends": "@repo/typescript-config/node",
   "compilerOptions": {
     "outDir": "./dist",
+    "rootDir": "./src",
     "incremental": true,
     "baseUrl": ".",
     "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "composite": false,
     "paths": {
       "@/*": ["./src/*"],
-      "@repo/shared": ["../shared/src/index.ts"],
-      "@repo/shared/schema": ["../shared/src/schema/index.ts"]
+      "@repo/shared": ["../shared/dist/index"],
+      "@repo/shared/*": ["../shared/dist/*"]
     }
   },
   "include": ["src"],

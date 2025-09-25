@@ -1,6 +1,7 @@
 import { createApp } from './app';
-import { Env } from './lib/env';
 import { connectDatabase } from '@repo/database/db';
+import { Env } from './lib/env';
+import { startHocuspocusServer } from './hocuspocus';
 
 const app = createApp();
 
@@ -9,15 +10,18 @@ const databaseUrl = Env.get('DATABASE_URL');
 
 async function startServer() {
   try {
-    // Connect to database first
-    console.log('Connecting to database...');
-    await connectDatabase(databaseUrl);
-    console.log('✅ Database connected');
+    app.listen(port, async () => {
+      console.log(`http server is running on port ${port}`);
 
-    // Start the HTTP API server
-    app.listen(port, () => {
-      console.log(`✅ HTTP API server is running on port ${port}`);
+      console.log('connecting to database...');
+
+      await connectDatabase(databaseUrl);
+
+      console.log('database connected');
     });
+
+    // Start the Hocuspocus server
+    await startHocuspocusServer();
   } catch (error) {
     console.error('❌ Failed to start server:', error);
     process.exit(1);

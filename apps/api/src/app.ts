@@ -5,8 +5,6 @@ import cors from 'cors';
 import { errorMiddleware } from '@/middlewares/error';
 import { notFoundMiddleware } from './middlewares/not-found';
 import routes from './routes';
-import dotenv from 'dotenv';
-dotenv.config();
 
 import { Env } from '@/lib/env';
 
@@ -19,15 +17,20 @@ export const createApp = (): Express => {
   app.use(urlencoded({ extended: true }));
   app.use(cookieParser());
 
+  app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url} - Origin: ${req.headers.origin}`);
+    next();
+  });
+
   app.use(
     cors({
-      origin: [clientUrl],
+      origin: clientUrl,
       credentials: true,
     })
   );
 
   app.get('/health', (req, res) => {
-    res.json({ status: 'ok' });
+    res.send({ status: 'ok' });
   });
 
   app.use('/api/v1', routes);

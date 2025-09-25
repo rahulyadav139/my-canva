@@ -1,4 +1,4 @@
-import { SnapshotModel } from "@/models/snapshot";
+import { SnapshotModel } from '../../models/snapshot';
 import { Snapshot } from "@repo/shared/schema";
 import { Types } from 'mongoose';
 
@@ -7,6 +7,15 @@ class SnapshotService {
     constructor(private readonly model: typeof SnapshotModel) {}
 
     async createSnapshot(snapshot: Omit<Snapshot, 'id'>): Promise<Snapshot> {
+        console.log('SnapshotService: Creating snapshot with data:', {
+            canvasId: snapshot.canvasId,
+            dataType: typeof snapshot.data,
+            isBuffer: Buffer.isBuffer(snapshot.data),
+            dataLength: snapshot.data?.length,
+            hasData: snapshot.data !== undefined && snapshot.data !== null,
+            createdAt: snapshot.createdAt
+        });
+        
         const newSnapshot = await this.model.create(snapshot);
         return newSnapshot;
     }
@@ -22,7 +31,7 @@ class SnapshotService {
         return snapshot;
     }
     
-    async updateSnapshot(id: string, data: Uint8Array): Promise<Snapshot | null> {
+    async updateSnapshot(id: string, data: Buffer): Promise<Snapshot | null> {
         const updatedSnapshot = await this.model.findByIdAndUpdate(
             id, 
             { data }, 

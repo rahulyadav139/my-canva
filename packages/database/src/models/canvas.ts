@@ -1,14 +1,12 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Model } from 'mongoose';
 import { Canvas as CanvasSchema } from '@repo/shared/schema';
 
 const canvasSchema = new Schema<CanvasSchema>({
-  title: String,
-  owner: String,
+  owner: {type: Schema.Types.ObjectId, ref: 'User', required: true},
   collaborators: [String],
   permission: {type: String, enum: ['private', 'link', 'public'], default: 'private'},
-  latestSnapshot: {type: Schema.Types.ObjectId, ref: 'Snapshot', required: true},
   createdAt: {type: Date, default: Date.now},
   updatedAt: {type: Date, default: Date.now},
 });
 
-export const CanvasModel = model<CanvasSchema>('Canvas', canvasSchema);
+export const CanvasModel: Model<CanvasSchema> = model<CanvasSchema>('Canvas', canvasSchema);

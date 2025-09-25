@@ -21,7 +21,9 @@
   },
   "prettier": "@repo/prettier-config",
   "dependencies": {
+    "@types/node": "^24.5.2",
     "mongoose": "^8.18.2",
+    "save-dev": "0.0.1-security",
     "uuid": "^11.1.0",
     "zod": "catalog:"
   },

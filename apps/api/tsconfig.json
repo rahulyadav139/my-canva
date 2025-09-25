@@ -4,13 +4,14 @@
     "incremental": true,
     "lib": ["ES2022", "DOM"],
     "outDir": "./dist",
+    "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@repo/shared": ["../../packages/shared/src/index.ts"],
-      "@repo/shared/*": ["../../packages/shared/src/*"],
-      "@repo/database": ["../../packages/database/src/index.ts"],
-      "@repo/database/*": ["../../packages/database/src/*"]
+      "@repo/shared": ["../../packages/shared/dist/index"],
+      "@repo/shared/*": ["../../packages/shared/dist/*"],
+      "@repo/database": ["../../packages/database/dist/index"],
+      "@repo/database/*": ["../../packages/database/dist/*"]
     }
   },
   "include": ["src/**/*"],
