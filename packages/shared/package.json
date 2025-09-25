@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias -f",
     "lint": "eslint . --cache --cache-location .eslintcache",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -17,6 +17,7 @@
     "@repo/typescript-config": "workspace:*",
     "prettier": "catalog:",
     "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.16",
     "typescript": "catalog:"
   },
   "prettier": "@repo/prettier-config",

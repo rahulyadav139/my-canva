@@ -1,5 +1,5 @@
 import express, { Express } from 'express';
-import { json, urlencoded } from 'body-parser';
+import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { errorMiddleware } from '@/middlewares/error';
@@ -13,8 +13,8 @@ const clientUrl = Env.get('CLIENT_URL');
 export const createApp = (): Express => {
   const app = express();
 
-  app.use(json());
-  app.use(urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(cookieParser());
 
   app.use((req, res, next) => {

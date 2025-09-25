@@ -3,6 +3,10 @@
   "compilerOptions": {
     "incremental": true,
     "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": ".",

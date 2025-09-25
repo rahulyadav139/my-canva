@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias -f",
     "lint": "eslint . --cache --cache-location .eslintcache",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -19,11 +19,12 @@
     "@types/node": "^22.15.3",
     "prettier": "catalog:",
     "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.16",
     "typescript": "catalog:"
   },
   "dependencies": {
-    "mongoose": "^8.18.2",
-    "@repo/shared": "workspace:*"
+    "@repo/shared": "workspace:*",
+    "mongoose": "^8.18.2"
   },
   "prettier": "@repo/prettier-config",
   "exports": {
