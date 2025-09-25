@@ -1,6 +1,6 @@
 import { RequestHandler, Request, Response } from 'express';
 import { asyncHandler } from '@/utils/async-handler';
-import { canvasService, snapshotService } from '@repo/database/services';
+import { canvasService } from '@repo/database/services';
 
 export class CanvasController {
   static createCanvas: RequestHandler = asyncHandler(

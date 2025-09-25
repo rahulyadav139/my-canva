@@ -39,6 +39,12 @@
       "require": "./dist/schema/index.js",
       "default": "./dist/schema/index.js"
     },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.js",
+      "default": "./dist/types/index.js"
+    },
     "./*": {
       "import": "./dist/*/index.js",
       "types": "./dist/*/index.d.ts",

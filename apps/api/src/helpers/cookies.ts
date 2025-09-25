@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { Types } from '@repo/database';
+import { Types } from 'mongoose';
 import { signJwt, JWT_EXPIRES_IN } from './jwt';
 import { Env } from '@/lib/env';
 

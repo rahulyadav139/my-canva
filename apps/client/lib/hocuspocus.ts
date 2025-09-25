@@ -17,8 +17,8 @@ export interface HocuspocusConnectionOptions {
 }
 
 export interface CanvasCollaborationData {
-  elements: Y.Array<any>;
-  metadata: Y.Map<any>;
+  elements: Y.Array<unknown>;
+  metadata: Y.Map<unknown>;
 }
 
 // User awareness data structure
@@ -199,7 +199,7 @@ class HocuspocusConnectionManager {
   }
 
   closeAllConnections() {
-    for (const [documentName, connection] of this.connections) {
+    for (const [, connection] of this.connections) {
       connection.destroy();
     }
     this.connections.clear();

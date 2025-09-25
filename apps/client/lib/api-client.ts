@@ -7,7 +7,6 @@ import type {
   AxiosInstance,
   AxiosRequestConfig,
   AxiosResponse,
-  InternalAxiosRequestConfig,
 } from 'axios';
 
 export interface ApiClientConfig extends AxiosRequestConfig {

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Env } from '@/lib/env';
-import { Types } from '@repo/database';
+import { Types } from 'mongoose';
 
 const JWT_SECRET = Env.get('JWT_SECRET');
 

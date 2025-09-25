@@ -179,14 +179,18 @@ export const useCanvasCollaboration = ({
       const metadataObserver = () => {
         const metadataMap = canvasData.metadata;
         const newMetadata: CanvasMetadata = {
-          width: metadataMap.get('width') || 1080,
-          height: metadataMap.get('height') || 1080,
-          backgroundColor: metadataMap.get('backgroundColor') || '#ffffff',
-          zoom: metadataMap.get('zoom') || 1,
-          panX: metadataMap.get('panX') || 0,
-          panY: metadataMap.get('panY') || 0,
-          lastModified: metadataMap.get('lastModified') || Date.now(),
-          lastModifiedBy: metadataMap.get('lastModifiedBy'),
+          width: (metadataMap.get('width') as number) || 1080,
+          height: (metadataMap.get('height') as number) || 1080,
+          backgroundColor:
+            (metadataMap.get('backgroundColor') as string) || '#ffffff',
+          zoom: (metadataMap.get('zoom') as number) || 1,
+          panX: (metadataMap.get('panX') as number) || 0,
+          panY: (metadataMap.get('panY') as number) || 0,
+          lastModified:
+            (metadataMap.get('lastModified') as number) || Date.now(),
+          lastModifiedBy: metadataMap.get('lastModifiedBy') as
+            | string
+            | undefined,
         };
         setMetadata(newMetadata);
         callbacksRef.current.onMetadataChange?.(newMetadata);
@@ -240,9 +244,9 @@ export const useCanvasCollaboration = ({
       if (!connection) return;
 
       const elementsArray = connection.canvasData.elements;
-      const index = elementsArray
-        .toArray()
-        .findIndex((element: CanvasElement) => element.id === id);
+      const index = (elementsArray.toArray() as CanvasElement[]).findIndex(
+        (element: CanvasElement) => element.id === id
+      );
 
       if (index !== -1) {
         const currentElement = elementsArray.get(index) as CanvasElement;
@@ -265,9 +269,9 @@ export const useCanvasCollaboration = ({
       if (!connection) return;
 
       const elementsArray = connection.canvasData.elements;
-      const index = elementsArray
-        .toArray()
-        .findIndex((element: CanvasElement) => element.id === id);
+      const index = (elementsArray.toArray() as CanvasElement[]).findIndex(
+        (element: CanvasElement) => element.id === id
+      );
 
       if (index !== -1) {
         elementsArray.delete(index, 1);

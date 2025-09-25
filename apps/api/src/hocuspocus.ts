@@ -43,6 +43,7 @@ export const createHocuspocusServer = () => {
                   snapshot.data &&
                   typeof snapshot.data.buffer === 'function'
                 ) {
+                  // @ts-ignore
                   snapshotData = new Uint8Array(snapshot.data.buffer());
                 } else if (snapshot.data instanceof Buffer) {
                   snapshotData = new Uint8Array(snapshot.data);
